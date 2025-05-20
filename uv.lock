@@ -1,0 +1,29 @@
+version = 1
+revision = 2
+requires-python = ">=3.12"
+
+[[package]]
+name = "cabocha-python"
+version = "0.69.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "python-config" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ec/7b/23e6b0ec114e6e56d86d1e221b3ba50ce2f00b970b83d31462f4197fa959/cabocha-python-0.69.3.tar.gz", hash = "sha256:5a65a5ff29f12a7e58afaebd915f11ef435d6e85129dfc7d5777dcbba128343c", size = 48813, upload-time = "2022-08-17T13:21:20.724Z" }
+
+[[package]]
+name = "cabochaproject"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "cabocha-python" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "cabocha-python", specifier = ">=0.69.3" }]
+
+[[package]]
+name = "python-config"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/56/0f/6f928359bab336138537a0c7980f50bc831d0c758b5de351e50169bd9909/python-config-0.1.2.tar.gz", hash = "sha256:fcd5006593f94bdb3ede906a63116e7ac7fffb753b91cfaa1df8ce2f91750af2", size = 4741, upload-time = "2016-12-12T13:08:37.567Z" }

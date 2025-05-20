@@ -1,0 +1,9 @@
+[project]
+name = "cabochaproject"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cabocha-python>=0.69.3",
+]
