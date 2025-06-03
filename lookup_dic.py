@@ -38,7 +38,7 @@ def analyze_and_check_nouns_with_sudachi_dict(text):
     return results
 
 if __name__ == "__main__":
-    input_text = "東京スカイツリーは日本の首都、東京にある展望台です。Pythonでプログラミング学習をしています。彼はミュージシンです。未知語テスト"
+    input_text = "あの人はミュージシンですが、プログラミング学習をしています。"
 
     print("--- Sudachiのシステム辞書による名詞の照合結果 ---")
     check_results = analyze_and_check_nouns_with_sudachi_dict(input_text)
@@ -46,6 +46,6 @@ if __name__ == "__main__":
         if exists:
             print(f"'{noun}': Sudachi辞書に存在します")
         else:
-            print(f"'{noun}': Sudachi辞書に存在しません（未知語または複合語の一部として扱われた可能性あり）")
+            print(f"'{noun}': Sudachi辞書に存在しません　←←←")
 
     
