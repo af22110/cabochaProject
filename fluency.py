@@ -11,8 +11,8 @@ model.eval()
 
 # === 2. 入力ファイルの読み込み（CSVまたはExcel） ===
 # ファイルパスと列名を指定してください
-input_file = "input.xlsx"  # 例: input.csv や input.xlsx
-text_column = "文"         # 文が入っている列名に変更
+input_file = "INPUT.xlsx"  # 例: input.csv や input.xlsx
+text_column = "元のテキスト"         # 文が入っている列名に変更
 
 if input_file.endswith(".csv"):
     df = pd.read_csv(input_file)
@@ -30,6 +30,7 @@ for text in tqdm(df[text_column], desc="Calculating fluency scores"):
         continue
 
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    inputs.pop("token_type_ids", None)  # 追加: token_type_idsを除去
     with torch.no_grad():
         outputs = model(**inputs)
         probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
@@ -40,6 +41,6 @@ for text in tqdm(df[text_column], desc="Calculating fluency scores"):
 df["fluency_score"] = fluency_scores
 
 # 保存
-output_file = "output_with_fluency_score.xlsx"
+output_file = "o.xlsx"
 df.to_excel(output_file, index=False)
 print(f"✔️ スコア付きのデータを保存しました：{output_file}")
